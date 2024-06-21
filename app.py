@@ -5,7 +5,7 @@ from arduino_translator.commands import commands
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/translate": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 translator = ArduinoTranslator()
 
