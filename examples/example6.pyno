@@ -1,0 +1,43 @@
+/*
+    +--------------------------------------------------------------+
+    | Uso de Funções Matemáticas Avançadas                         |
+    | Autor: Francisco Iago Lira Passos                            |
+    | E-mail: iagolirapassos@gmail.com                             |
+    +--------------------------------------------------------------+
+*/
+
+
+iniciar {
+    conexaoSerial(9600);
+}
+
+loop {
+    variavel valor = 100;
+    variavel absolutoValor = absoluto(valor);
+    variavel raizValor = raizQuadrada(valor);
+    variavel minimoValor = minimo(valor, 50);
+    variavel maximoValor = maximo(valor, 150);
+    variavel potenciaValor = potencia(valor, 2);
+    variavel logaritmoValor = log(valor);
+    variavel senoValor = seno(3.14 / 2);
+    variavel cossenoValor = cosseno(3.14 / 2);
+
+    imprimirSerial("Absoluto: ");
+    imprimirLinhaSerial(absolutoValor);
+    imprimirSerial("Raiz: ");
+    imprimirLinhaSerial(raizValor);
+    imprimirSerial("Minimo: ");
+    imprimirLinhaSerial(minimoValor);
+    imprimirSerial("Maximo: ");
+    imprimirLinhaSerial(maximoValor);
+    imprimirSerial("Potencia: ");
+    imprimirLinhaSerial(potenciaValor);
+    imprimirSerial("Logaritmo: ");
+    imprimirLinhaSerial(logaritmoValor);
+    imprimirSerial("Seno: ");
+    imprimirLinhaSerial(senoValor);
+    imprimirSerial("Cosseno: ");
+    imprimirLinhaSerial(cossenoValor);
+
+    pausar(5000);
+}

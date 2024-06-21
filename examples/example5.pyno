@@ -1,0 +1,49 @@
+/*
+    +--------------------------------------------------------------+
+    | Definição de Classes e Métodos                               |
+    | Autor: Francisco Iago Lira Passos                            |
+    | E-mail: iagolirapassos@gmail.com                             |
+    +--------------------------------------------------------------+
+*/
+
+classe LED {
+    privado:
+        variavel pino;
+        variavel estado;
+
+    publico:
+        LED(variavel p) {
+            pino = p;
+            estado = baixa;
+            pinoModo(pino, saida);
+        }
+
+        nada ligar() {
+            estado = alta;
+            digitalEscrever(pino, estado);
+        }
+
+        nada desligar() {
+            estado = baixa;
+            digitalEscrever(pino, estado);
+        }
+
+        variavel obterEstado() {
+            retornar estado;
+        }
+}
+
+LED meuLED(13);
+
+iniciar {
+    conexaoSerial(9600);
+    imprimirLinhaSerial("Iniciando LED");
+}
+
+loop {
+    meuLED.ligar();
+    pausar(1000);
+    meuLED.desligar();
+    pausar(1000);
+    imprimirLinhaSerial("Ciclo completo");
+}

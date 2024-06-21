@@ -1,3 +1,11 @@
+/*
+    +------------------------------------------+
+    | Leitura de Sensor e Controle Condicional |
+    | Autor: Francisco Iago Lira Passos        |
+    | E-mail: iagolirapassos@gmail.com         |
+    +------------------------------------------+
+*/
+
 iniciar {
     pinoModo(7, entrada);
     pinoModo(13, saida);
@@ -5,7 +13,7 @@ iniciar {
 }
 
 loop {
-    int valor = digitalLer(7);
+    variavel valor = digitalLer(7);
     se (valor == alta) {
         digitalEscrever(13, alta);
         imprimirLinhaSerial("Pino 7 está ALTO");

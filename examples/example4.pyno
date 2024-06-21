@@ -1,0 +1,34 @@
+/*
+    +--------------------------------------------------------------+
+    | Uso de Operadores Bitwise e Funções de Controle Avançado     |
+    | Autor: Francisco Iago Lira Passos                            |
+    | E-mail: iagolirapassos@gmail.com                             |
+    +--------------------------------------------------------------+
+*/
+
+
+iniciar {
+    pinoModo(13, saida);
+    pinoModo(7, entrada);
+    conexaoSerial(9600);
+}
+
+loop {
+    variavel valor = digitalLer(7);
+    valor = valor eBitwise 0x0F;
+    valor = valor ouBitwise 0xF0;
+    valor = valor xorBitwise 0xFF;
+    valor = notBitwise valor;
+    valor = valor shiftLeft 2;
+    valor = valor shiftRight 1;
+
+    se (valor == 0) {
+        digitalEscrever(13, baixa);
+    } senao {
+        digitalEscrever(13, alta);
+    }
+
+    imprimirSerial("Valor: ");
+    imprimirLinhaSerial(valor);
+    pausar(1000);
+}

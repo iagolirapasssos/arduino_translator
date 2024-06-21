@@ -1,10 +1,18 @@
+/*
+    +------------------------------------------+
+    | Uso de switch, while e do...while        |
+    | Autor: Francisco Iago Lira Passos        |
+    | E-mail: iagolirapassos@gmail.com         |
+    +------------------------------------------+
+*/
+
 iniciar {
     pinoModo(7, entrada);
     pinoModo(13, saida);
 }
 
 loop {
-    int valor = digitalLer(7);
+    variavel valor = digitalLer(7);
     caso (valor) {
         casoDe 0:
             digitalEscrever(13, baixa);
@@ -16,7 +24,7 @@ loop {
             digitalEscrever(13, baixa);
     }
 
-    int contador = 0;
+    variavel contador = 0;
     enquanto (contador < 5) {
         digitalEscrever(13, alta);
         pausar(500);
