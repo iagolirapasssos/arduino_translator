@@ -1,14 +1,45 @@
-let editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
-    lineNumbers: true,
-    mode: "text/x-csrc",
-    theme: "darcula"
-});
+function initializeEditor(keywords) {
+    let customKeywords = {};
+    keywords.forEach(keyword => {
+        customKeywords[keyword] = "keyword";
+    });
 
-function newFile() {
+    CodeMirror.defineMIME("text/x-custom", {
+        name: "clike",
+        keywords: customKeywords
+    });
+
+    let editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+        lineNumbers: true,
+        mode: "text/x-custom",
+        theme: "darcula"
+    });
+
+    return editor;
+}
+
+function fetchKeywordsAndInitializeEditor() {
+    fetch('http://162.248.101.160:5000/keywords')
+        .then(response => response.json())
+        .then(keywords => {
+            let editor = initializeEditor(Object.keys(keywords));
+
+            document.querySelector('.menu-item[onclick="newFile()"]').onclick = () => newFile(editor);
+            document.querySelector('.menu-item[onclick="openFile()"]').onclick = () => openFile(editor);
+            document.querySelector('.menu-item[onclick="saveFile()"]').onclick = () => saveFile(editor);
+            document.querySelector('.menu-item[onclick="saveFileAs()"]').onclick = () => saveFileAs(editor);
+            document.querySelector('.menu-item[onclick="translateCode()"]').onclick = () => translateCode(editor);
+        })
+        .catch(error => {
+            console.error('Erro ao buscar palavras reservadas:', error);
+        });
+}
+
+function newFile(editor) {
     editor.setValue('');
 }
 
-function openFile() {
+function openFile(editor) {
     let input = document.createElement('input');
     input.type = 'file';
     input.accept = '.pyno';
@@ -23,7 +54,7 @@ function openFile() {
     input.click();
 }
 
-function saveFile() {
+function saveFile(editor) {
     let content = editor.getValue();
     let blob = new Blob([content], { type: 'text/plain' });
     let url = URL.createObjectURL(blob);
@@ -34,7 +65,7 @@ function saveFile() {
     URL.revokeObjectURL(url);
 }
 
-function saveFileAs() {
+function saveFileAs(editor) {
     let content = editor.getValue();
     let blob = new Blob([content], { type: 'text/plain' });
     let url = URL.createObjectURL(blob);
@@ -45,9 +76,9 @@ function saveFileAs() {
     URL.revokeObjectURL(url);
 }
 
-function translateCode() {
+function translateCode(editor) {
     let content = editor.getValue();
-    fetch('http://162.248.101.160:5000/translate', { // Atualize com o IP correto da sua VPS
+    fetch('http://162.248.101.160:5000/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: content })
@@ -69,3 +100,7 @@ function translateCode() {
 function showShortcuts() {
     alert('Atalhos: \nNovo: Ctrl+N \nAbrir: Ctrl+O \nSalvar: Ctrl+S \nSalvar Como: Ctrl+Shift+S \nTraduzir: Ctrl+T');
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    fetchKeywordsAndInitializeEditor();
+});
