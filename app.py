@@ -1,8 +1,10 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, send_file, jsonify
+from flask_cors import CORS
 from arduino_translator.translator import ArduinoTranslator
 import os
 
 app = Flask(__name__)
+CORS(app, resources={r"/translate": {"origins": "*"}})  # Adicione esta linha para habilitar CORS
 
 translator = ArduinoTranslator()
 

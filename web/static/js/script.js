@@ -47,7 +47,7 @@ function saveFileAs() {
 
 function translateCode() {
     let content = editor.getValue();
-    fetch('http://bosonshiggs@162.248.101.160:5000/translate', {
+    fetch('http://162.248.101.160:5000/translate', { // Atualize com o IP correto da sua VPS
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: content })
@@ -60,6 +60,9 @@ function translateCode() {
         a.download = 'translated.ino';
         a.click();
         URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+        console.error('Erro na tradução:', error);
     });
 }
 
