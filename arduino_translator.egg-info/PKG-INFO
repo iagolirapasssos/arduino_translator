@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: arduino-translator
+Version: 0.1
+Summary: A translator for custom Arduino language to Arduino code.
+Home-page: https://github.com/seu_usuario/arduino_translator
+Author: Francisco Iago Lira Passos
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Arduino Translator
+
+Arduino Translator é uma ferramenta para traduzir uma linguagem personalizada de comandos para código Arduino.
+
+## Instalação
+
+Você pode instalar o Arduino Translator usando `pip`:
+
+```sh
+pip install git+https://github.com/seu_usuario/arduino_translator.git
+```
+
+## Uso
+
+Para usar o tradutor, execute o seguinte comando no terminal:
+
+```sh
+arduino-translate input_file output_file
+```
+
+Onde `input_file` é o arquivo contendo o código personalizado e `output_file` é o arquivo onde o código Arduino traduzido será salvo.
+```
+
+#### 6. `.gitignore`
+```
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.env
+```
+
+#### 7. `requirements.txt`
+```
+# Lista de dependências
+```
+
+### Subindo para o GitHub
+
+1. **Inicializar um repositório Git:**
+    ```sh
+    git init
+    git add .
+    git commit -m "Initial commit"
+    ```
+
+2. **Criar um novo repositório no GitHub.**
+
+3. **Adicionar o repositório remoto e enviar o código:**
+    ```sh
+    git remote add origin https://github.com/seu_usuario/arduino_translator.git
+    git branch -M main
+    git push -u origin main
+    ```
+
+Agora, o tradutor está pronto para ser usado e pode ser instalado via `pip` diretamente do GitHub. Este projeto permite a tradução de uma linguagem personalizada para comandos da linguagem Arduino, facilitando o desenvolvimento de programas para Arduino em uma linguagem mais familiar.

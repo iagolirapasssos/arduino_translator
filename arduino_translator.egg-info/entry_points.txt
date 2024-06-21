@@ -1,0 +1,2 @@
+[console_scripts]
+arduino-translate = arduino_translator.cli:main
