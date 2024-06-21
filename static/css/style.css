@@ -1,9 +1,14 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #2b2b2b;
     color: #fff;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -13,6 +18,7 @@ body {
     display: flex;
     background-color: #3c3f41;
     padding: 10px;
+    flex: 0 0 auto;
 }
 
 .menu-item {
@@ -25,12 +31,41 @@ body {
 }
 
 #editor-container {
-    flex-grow: 1;
     display: flex;
-    height: calc(100vh - 50px);
+    flex: 1 1 auto;
+    height: 100%;
 }
 
-#editor {
-    width: 100%;
+#editor, #translation {
+    width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.CodeMirror {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+}
+
+/* Coloração de palavras reservadas */
+.cm-keyword-type {
+    color: #ff79c6;
+}
+
+.cm-keyword-function {
+    color: #50fa7b;
+}
+
+.cm-keyword-loop {
+    color: #8be9fd;
+}
+
+.cm-keyword-conditional {
+    color: #bd93f9;
+}
+
+.cm-keyword-other {
+    color: #f1fa8c;
 }
