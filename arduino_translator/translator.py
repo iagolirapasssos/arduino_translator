@@ -1,16 +1,8 @@
+from .commands import commands
+
 class ArduinoTranslator:
     def __init__(self):
-        self.commands = {
-            'iniciar': 'void setup()',
-            'loop': 'void loop()',
-            'digitalEscrever': 'digitalWrite',
-            'digitalLer': 'digitalRead',
-            'pinoModo': 'pinMode',
-            'alta': 'HIGH',
-            'baixa': 'LOW',
-            'saida': 'OUTPUT',
-            'entrada': 'INPUT'
-        }
+        self.commands = commands
     
     def translate(self, custom_code):
         arduino_code = custom_code

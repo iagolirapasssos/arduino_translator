@@ -1,5 +1,5 @@
 import argparse
-from .translator.py import ArduinoTranslator
+from .translator import ArduinoTranslator
 
 def main():
     parser = argparse.ArgumentParser(description='Translate custom Arduino language to Arduino code.')

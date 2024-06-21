@@ -1,0 +1,14 @@
+iniciar {
+    pinoModo(13, saida);
+    conexaoSerial(9600);
+}
+
+loop {
+    para (int i = 0; i < 10; i++) {
+        digitalEscrever(13, alta);
+        pausar(1000);
+        digitalEscrever(13, baixa);
+        pausar(1000);
+        imprimirLinhaSerial("Ciclo completo");
+    }
+}

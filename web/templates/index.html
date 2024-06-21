@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/mode/clike/clike.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/theme/darcula.min.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="menu-item" onclick="newFile()">Novo</div>
+        <div class="menu-item" onclick="openFile()">Abrir</div>
+        <div class="menu-item" onclick="saveFile()">Salvar</div>
+        <div class="menu-item" onclick="saveFileAs()">Salvar Como</div>
+        <div class="menu-item" onclick="translateCode()">Traduzir</div>
+        <div class="menu-item" onclick="showShortcuts()">Atalhos</div>
+    </div>
+    <textarea id="editor"></textarea>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
