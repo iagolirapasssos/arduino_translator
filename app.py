@@ -4,7 +4,7 @@ from arduino_translator.translator import ArduinoTranslator
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/translate": {"origins": "*"}})  # Adicione esta linha para habilitar CORS
+CORS(app, resources={r"/translate": {"origins": "*"}})
 
 translator = ArduinoTranslator()
 
@@ -17,7 +17,7 @@ def translate_code():
     with open('translated.ino', 'w') as f:
         f.write(arduino_code)
 
-    return send_file('translated.ino', as_attachment=True, attachment_filename='translated.ino')
+    return send_file('translated.ino', as_attachment=True, download_name='translated.ino')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
