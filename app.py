@@ -22,9 +22,8 @@ def translate_code():
 
 @app.route('/keywords', methods=['GET'])
 def get_keywords():
-    # Extrair apenas as palavras-chave e categorias
     keywords = {key: value['category'] for key, value in commands.items()}
     return jsonify(keywords)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, ssl_context=('ssl/cert.pem', 'ssl/key.pem'))
