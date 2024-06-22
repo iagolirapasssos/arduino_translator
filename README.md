@@ -19,7 +19,6 @@ arduino-translate input_file output_file
 ```
 
 Onde `input_file` é o arquivo contendo o código personalizado e `output_file` é o arquivo onde o código Arduino traduzido será salvo.
-```
 
 Agora, o tradutor está pronto para ser usado e pode ser instalado via `pip` diretamente do GitHub. Este projeto permite a tradução de uma linguagem personalizada para comandos da linguagem Arduino, facilitando o desenvolvimento de programas para Arduino em uma linguagem mais familiar.
 
