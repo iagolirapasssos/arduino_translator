@@ -60,7 +60,6 @@ Para traduzir um exemplo:
 ```sh
 arduino-translate examples/example1.txt examples/example_translated1.ino
 ```
-```
 
 ### Subindo as Mudanças para o GitHub
 
