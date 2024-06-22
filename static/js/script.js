@@ -31,7 +31,7 @@ function initializeEditor(keywords) {
 }
 
 function fetchKeywordsAndInitializeEditor() {
-    fetch('162.248.101.160:5000/keywords')
+    fetch('https://162.248.101.160:5000/keywords')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -52,9 +52,10 @@ function fetchKeywordsAndInitializeEditor() {
         });
 }
 
+
 function updateTranslation(editor, translation) {
     let content = editor.getValue();
-    fetch('162.248.101.160:5000/translate', {
+    fetch('https://162.248.101.160:5000/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: content })
@@ -112,7 +113,7 @@ function saveFileAs(editor) {
 
 function translateCode(editor) {
     let content = editor.getValue();
-    fetch('162.248.101.160:5000/translate', {
+    fetch('https://162.248.101.160:5000/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: content })
